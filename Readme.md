@@ -1,10 +1,10 @@
 # Личный проект «Пиксель хантер» [![Build status][travis-image]][travis-url]
 
 * Студент: [Александра Горячева](https://up.htmlacademy.ru/ecmascript/7/user/177129).
-* Наставник: `Неизвестно`.
+* Наставник: [Александр Мастеров].
 
 ---
-
+npm start
 _Не удаляйте и не изменяйте папки и файлы:_
 _`.editorconfig`, `.gitattributes`, `.gitignore`, `.travis.yml`, `package.json`._
 
