@@ -2,7 +2,7 @@
 
 const RIGHT_ARROW = 39;
 const LEFT_ARROW = 37;
-const SCREENS_ORDER = [`intro`, `greeting`, `rules`, `game-1`, `game-2`, `game-3`, `stats`];
+const SCREENS_IDS = [`intro`, `greeting`, `rules`, `game-1`, `game-2`, `game-3`, `stats`]; // all screens in the right order
 const BTNS_TEMPLATE = `<div class="arrows__wrap">
 <style>
   .arrows__wrap {
@@ -20,7 +20,9 @@ const BTNS_TEMPLATE = `<div class="arrows__wrap">
 <button class="arrows__btn"><-</button>
 <button class="arrows__btn">-></button>
 </div>`;
+
 const app = document.querySelector(`#main`);
+
 const screensDict = {};
 Array.from(document.querySelectorAll(`template`)).
   forEach((template) => {
@@ -35,41 +37,54 @@ const appendTemplate = (content, container) => {
   container.appendChild(element.cloneNode(true));
 };
 
-let current = 0;
-const showScreen = (index) => {
-  index = index < 0 ? SCREENS_ORDER.length - 1 : index;
-  index = index >= SCREENS_ORDER.length ? 0 : index;
-  current = index;
-  const currentId = SCREENS_ORDER[current];
-  appendTemplate(screensDict[currentId], app);
+const showScreenById = (id) => {
+  if (screensDict[id]) {
+    appendTemplate(screensDict[id], app);
+  } else {
+    selectScreen(0);
+  }
 };
 
-showScreen(0);
+let current = 0;
+const selectScreen = (screen) => {
+  screen = screen < 0 ? SCREENS_IDS.length - 1 : screen;
+  screen = screen >= SCREENS_IDS.length ? 0 : screen;
+  location.hash = SCREENS_IDS[screen];
+  current = screen;
+};
 
 const body = document.querySelector(`body`);
 body.insertAdjacentHTML(`beforeend`, BTNS_TEMPLATE);
 const [btnPrev, btnNext] = document.querySelectorAll(`.arrows__btn`);
 
+const onHashChange = () => {
+  if (location.hash) {
+    showScreenById(location.hash.substring(1));
+  } else {
+    selectScreen(0);
+  }
+};
+
 btnPrev.addEventListener(`click`, () => {
-  showScreen(current - 1);
+  selectScreen(current - 1);
 });
 
 btnNext.addEventListener(`click`, () => {
-  showScreen(current + 1);
+  selectScreen(current + 1);
 });
 
 document.addEventListener(`keydown`, (evt) => {
   switch (evt.keyCode) {
     case RIGHT_ARROW:
       btnNext.focus();
-      showScreen(current + 1);
-
+      selectScreen(current + 1);
       break;
     case LEFT_ARROW:
       btnPrev.focus();
-      showScreen(current - 1);
-
+      selectScreen(current - 1);
       break;
   }
 });
 
+window.addEventListener(`hashchange`, onHashChange);
+document.addEventListener(`DOMContentLoaded`, onHashChange);
