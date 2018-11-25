@@ -1,4 +1,4 @@
-import { changeScreen, getElementFromTemplate } from './utils.js';
+import {changeScreen, getElementFromTemplate} from './utils.js';
 import greetingScreen from './greeting.js';
 import gameScreen2 from './game2.js';
 
@@ -65,14 +65,14 @@ const element = getElementFromTemplate(template);
 
 const btnBack = element.querySelector(`.back`);
 btnBack.addEventListener(`click`, () => {
-    changeScreen(greetingScreen);
+  changeScreen(greetingScreen);
 });
 
 const form = element.querySelector(`.game__content`);
-form.addEventListener('change', (e) => {
-    if (form.querySelectorAll(`input[type=radio]:checked`).length === 2) {
-        changeScreen(gameScreen2);
-    }
+form.addEventListener(`change`, () => {
+  if (form.querySelectorAll(`input[type=radio]:checked`).length === 2) {
+    changeScreen(gameScreen2);
+  }
 });
 
 export default element;

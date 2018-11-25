@@ -1,4 +1,4 @@
-import { changeScreen, getElementFromTemplate } from './utils.js';
+import {changeScreen, getElementFromTemplate} from './utils.js';
 import greetingScreen from './greeting.js';
 import gameScreen1 from './game1.js';
 
@@ -30,7 +30,6 @@ const template = `
   <button class="rules__button  continue" type="submit" disabled>Go!</button>
 </form>
 </section>
-
 `;
 
 const element = getElementFromTemplate(template);
@@ -40,14 +39,14 @@ const form = element.querySelector(`.rules__form`);
 const [nameField, btnNext] = form.elements;
 
 btnBack.addEventListener(`click`, () => {
-    changeScreen(greetingScreen);
+  changeScreen(greetingScreen);
 });
 nameField.addEventListener(`input`, (e) => {
-    btnNext.disabled = e.target.value.length < 1;
-})
+  btnNext.disabled = e.target.value.length < 1;
+});
 form.addEventListener(`submit`, (e) => {
-    e.preventDefault();
-    changeScreen(gameScreen1);
-})
+  e.preventDefault();
+  changeScreen(gameScreen1);
+});
 
 export default element;

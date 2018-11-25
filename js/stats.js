@@ -119,7 +119,7 @@ const element = getElementFromTemplate(template);
 const btnBack = element.querySelector(`.back`);
 
 btnBack.addEventListener(`click`, () => {
-    changeScreen(greetingScreen);
+  changeScreen(greetingScreen);
 });
 
 export default element;

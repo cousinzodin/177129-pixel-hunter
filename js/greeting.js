@@ -27,6 +27,6 @@ const element = getElementFromTemplate(template);
 
 const btnNext = element.querySelector(`.greeting__continue`);
 btnNext.addEventListener(`click`, () => {
-   changeScreen(rulesScreen);
+  changeScreen(rulesScreen);
 });
 export default element;

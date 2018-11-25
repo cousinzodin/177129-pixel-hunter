@@ -1,4 +1,4 @@
-import { changeScreen, getElementFromTemplate } from './utils.js';
+import {changeScreen, getElementFromTemplate} from './utils.js';
 import greetingScreen from './greeting.js';
 import statsScreen from './stats.js';
 
@@ -53,9 +53,11 @@ const element = getElementFromTemplate(template);
 const btnBack = element.querySelector(`.back`);
 
 btnBack.addEventListener(`click`, () => {
-    changeScreen(greetingScreen);
+  changeScreen(greetingScreen);
 });
 
 const options = element.querySelectorAll(`.game__option`);
-options.forEach((option) => option.addEventListener('click', () => {changeScreen(statsScreen)} ))
+options.forEach((option) => option.addEventListener(`click`, () => {
+  changeScreen(statsScreen);
+}));
 export default element;
