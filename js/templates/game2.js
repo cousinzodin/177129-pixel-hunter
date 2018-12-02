@@ -1,4 +1,4 @@
-import {changeScreen, getElementFromTemplate} from './utils.js';
+import {changeScreen, getElementFromTemplate} from '../utils.js';
 import greetingScreen from './greeting.js';
 import gameScreen3 from './game3.js';
 
