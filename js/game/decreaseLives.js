@@ -1,4 +1,4 @@
-import {LIMIT} from "../config";
+import {LIMIT} from "../data/config";
 
 export const decreaseLives = (state) => {
 

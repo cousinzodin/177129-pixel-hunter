@@ -1,6 +1,7 @@
-import {changeScreen, getElementFromTemplate} from '../utils.js';
+import {changeScreen, getElementFromTemplate} from '../../game/utils.js';
 import greetingScreen from './greeting.js';
-import gameScreen1 from './game1.js';
+import {INITIAL_STATE} from '../../data/data.js';
+import startGame from '../../game/startGame.js';
 
 const template = `
 <header class="header">
@@ -34,19 +35,20 @@ const template = `
 
 const element = getElementFromTemplate(template);
 
-const btnBack = element.querySelector(`.back`);
 const form = element.querySelector(`.rules__form`);
 const [nameField, btnNext] = form.elements;
 
+const btnBack = element.querySelector(`.back`);
 btnBack.addEventListener(`click`, () => {
   changeScreen(greetingScreen);
 });
+
 nameField.addEventListener(`input`, (e) => {
   btnNext.disabled = e.target.value.length < 1;
 });
 form.addEventListener(`submit`, (e) => {
   e.preventDefault();
-  changeScreen(gameScreen1);
+  startGame(INITIAL_STATE);
 });
 
 export default element;

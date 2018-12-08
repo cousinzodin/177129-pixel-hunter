@@ -1,4 +1,4 @@
-import {POINTS, LIMIT} from "../config";
+import {POINTS, LIMIT} from "../data/config";
 
 const answerToPoints = {
   correct: POINTS.REWARD,
@@ -7,7 +7,7 @@ const answerToPoints = {
   slow: POINTS.REWARD + POINTS.PENALTY
 };
 
-export const score = (answers, lives) => {
+export const getScore = (answers, lives) => {
   if (!Array.isArray(answers)) {
     throw new Error(`First argument should be array of answers`);
   }
@@ -39,4 +39,23 @@ export const score = (answers, lives) => {
   }, 0);
 
   return points;
+};
+
+export const getStatictic = (game) => {
+  const score = getScore(game.answers, game.lives);
+  let result = game.answers.reduce(function (count, current) {
+    count[current]++;
+    return count;
+  }, {fast: 0, slow: 0, correct: 0, wrong: 0});
+
+  return {
+    answers: game.answers,
+    win: score > -1,
+    total: score,
+    lives: game.lives,
+    fast: result.fast,
+    slow: result.slow,
+    correct: result.correct,
+    wrong: result.wrong,
+  };
 };
