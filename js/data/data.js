@@ -50,14 +50,14 @@ export const levels = [
   },
   {
     type: `guessOne`,
-    task: `Найдите фото среди изображений`,
+    task: `Найдите рисунок среди изображений`,
     question: {
       options: [
-        images.paintings[0],
-        images.paintings[1],
+        images.photos[1],
+        images.paintings[2],
         images.photos[2],
       ],
-      answer: images.photos[2],
+      answer: images.paintings[2],
     }
   },
   {
@@ -65,7 +65,7 @@ export const levels = [
     task: `Угадайте, фото или рисунок?`,
     questions: [
       {
-        image: images.photos[2],
+        image: images.photos[0],
         options: [`photo`, `paint`],
         answer: `photo`,
       }
@@ -76,12 +76,12 @@ export const levels = [
     task: `Угадайте для каждого изображения, фото или рисунок?`,
     questions: [
       {
-        image: images.photos[2],
+        image: images.photos[1],
         options: [`photo`, `paint`],
         answer: `photo`,
       },
       {
-        image: images.paintings[0],
+        image: images.paintings[2],
         options: [`photo`, `paint`],
         answer: `paint`,
       },
@@ -92,11 +92,11 @@ export const levels = [
     task: `Найдите рисунок среди изображений`,
     question: {
       options: [
-        images.photos[0],
-        images.paintings[0],
         images.photos[1],
+        images.paintings[2],
+        images.photos[2],
       ],
-      answer: images.paintings[0],
+      answer: images.paintings[2],
     }
   },
   {
@@ -104,9 +104,9 @@ export const levels = [
     task: `Угадайте, фото или рисунок?`,
     questions: [
       {
-        image: images.paintings[2],
+        image: images.photos[0],
         options: [`photo`, `paint`],
-        answer: `paint`,
+        answer: `photo`,
       }
     ],
   },
@@ -115,14 +115,14 @@ export const levels = [
     task: `Угадайте для каждого изображения, фото или рисунок?`,
     questions: [
       {
-        image: images.photos[2],
+        image: images.photos[1],
         options: [`photo`, `paint`],
         answer: `photo`,
       },
       {
-        image: images.photos[0],
+        image: images.paintings[2],
         options: [`photo`, `paint`],
-        answer: `photo`,
+        answer: `paint`,
       },
     ],
   },
@@ -131,9 +131,9 @@ export const levels = [
     task: `Угадайте для каждого изображения, фото или рисунок?`,
     questions: [
       {
-        image: images.paintings[1],
+        image: images.photos[1],
         options: [`photo`, `paint`],
-        answer: `paint`,
+        answer: `photo`,
       },
       {
         image: images.paintings[2],
