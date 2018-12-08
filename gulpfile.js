@@ -14,7 +14,6 @@ const rollup = require(`gulp-better-rollup`);
 const sourcemaps = require(`gulp-sourcemaps`);
 const mocha = require(`gulp-mocha`);
 const commonjs = require(`rollup-plugin-commonjs`);
-const resolve = require(`rollup-plugin-node-resolve`);
 
 gulp.task(`style`, () => {
   return gulp.src(`sass/style.scss`).
@@ -52,12 +51,7 @@ gulp.task(`scripts`, () => {
   return gulp.src(`js/main.js`)
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(rollup({
-      plugins: [
-        resolve(),
-        commonjs()
-      ]
-    }, `iife`))
+    .pipe(rollup({}, `iife`))
     .pipe(sourcemaps.write(``))
     .pipe(gulp.dest(`build/js`));
 });
@@ -125,7 +119,6 @@ gulp.task(`test`, function () {
     .src([`js/**/*.test.js`])
     .pipe(rollup({
       plugins: [
-        resolve(),
         commonjs()
       ]
     }, `cjs`))
@@ -134,3 +127,4 @@ gulp.task(`test`, function () {
       reporter: `nyan`
     }));
 });
+
