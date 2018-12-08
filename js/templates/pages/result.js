@@ -2,7 +2,7 @@ import {changeScreen, getElementFromTemplate} from '../../game/utils.js';
 import greetingScreen from './greeting.js';
 import header from '../shared/header.js';
 import progress from '../shared/progress.js';
-import {POINTS} from '../../data/config.js';
+import {Points} from '../../data/config.js';
 
 export default (stats) => {
   const template = `
@@ -15,29 +15,29 @@ ${stats.win ? `<table class="result__table">
     <td colspan="2">
     ${progress(stats.answers)}
     </td>
-    <td class="result__points">× 100</td>
-    <td class="result__total">${stats.correct * POINTS.REWARD}</td>
+    <td class="result_points">× 100</td>
+    <td class="result__total">${stats.correct * Points.REWARD}</td>
   </tr>
   <tr>
     <td></td>
     <td class="result__extra">Бонус за скорость:</td>
     <td class="result__extra">${stats.fast} <span class="stats__result stats__result--fast"></span></td>
-    <td class="result__points">× ${POINTS.BONUS}</td>
-    <td class="result__total">${stats.fast * POINTS.BONUS}</td>
+    <td class="result_points">× ${Points.BONUS}</td>
+    <td class="result__total">${stats.fast * Points.BONUS}</td>
   </tr>
   <tr>
     <td></td>
     <td class="result__extra">Бонус за жизни:</td>
     <td class="result__extra">${stats.lives} <span class="stats__result stats__result--alive"></span></td>
-    <td class="result__points">× ${POINTS.BONUS}</td>
-    <td class="result__total">${stats.lives * POINTS.BONUS}</td>
+    <td class="result_points">× ${Points.BONUS}</td>
+    <td class="result__total">${stats.lives * Points.BONUS}</td>
   </tr>
   <tr>
     <td></td>
     <td class="result__extra">Штраф за медлительность:</td>
     <td class="result__extra">${stats.slow} <span class="stats__result stats__result--slow"></span></td>
-    <td class="result__points">× ${POINTS.PENALTY}</td>
-    <td class="result__total">${stats.slow * POINTS.PENALTY}</td>
+    <td class="result_points">× ${Points.PENALTY}</td>
+    <td class="result__total">${stats.slow * Points.PENALTY}</td>
   </tr>
   <tr>
     <td colspan="5" class="result__total  result__total--final">${stats.total}</td>

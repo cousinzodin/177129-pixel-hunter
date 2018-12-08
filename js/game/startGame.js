@@ -5,25 +5,7 @@ import {INITIAL_STATE, levels} from '../data/data.js';
 import {changeLevel} from './changeLevel.js';
 import {decreaseLives} from './decreaseLives';
 import {getStatictic} from './score';
-import {LIMIT} from '../data/config.js';
-
-// const gameScreen = (state, level) => {
-//   const template = `
-// ${header(state)}
-// <section class="game">
-// <p class="game__task">${level.task}</p>
-// ${getQuestions(level)}
-// ${progress(state.answers)}
-// </section>
-// `;
-
-//   const element = getElementFromTemplate(template);
-//   const btnBack = element.querySelector(`.back`);
-//   btnBack.addEventListener(`click`, () => {
-//     changeScreen(greetingScreen);
-//   });
-//   return element;
-// };
+import {Limit} from '../data/config.js';
 
 const startGame = () => {
   const updateGame = (game) => {
@@ -50,7 +32,7 @@ const startGame = () => {
         game = decreaseLives(game);
       }
       game = changeLevel(game, game.level + 1);
-      if (game.level >= LIMIT.LEVELS) {
+      if (game.level >= Limit.LEVELS) {
         changeScreen(resultScreen(getStatictic(game)));
         return;
       }

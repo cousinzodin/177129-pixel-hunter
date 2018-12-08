@@ -1,5 +1,5 @@
 
-const LIMIT = {
+const Limit = {
   LEVELS: 10,
   LIVES: 3,
   TIME: 30,
@@ -7,22 +7,22 @@ const LIMIT = {
 
 const INITIAL_STATE = {
   level: 0,
-  time: LIMIT.TIME,
-  lives: LIMIT.LIVES,
-  points: 0,
+  time: Limit.TIME,
+  lives: Limit.LIVES,
+  Points: 0,
   answers: [],
 };
 
-const POINTS = {
+const Points = {
   REWARD: 100,
   BONUS: 50,
   PENALTY: -50,
 };
 
-const SPEED = {
+const Speed = {
   SLOW: 20,
   FAST: 10,
 };
 
-export {POINTS, SPEED, INITIAL_STATE, LIMIT};
+export {Points, Speed, INITIAL_STATE, Limit};
 

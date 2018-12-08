@@ -1,10 +1,10 @@
-import {LIMIT} from "./config";
+import {Limit} from "./config";
 import images from "./images.js";
 
 export const INITIAL_STATE = {
   level: 0,
-  time: LIMIT.TIME,
-  lives: LIMIT.LIVES,
+  time: Limit.TIME,
+  lives: Limit.LIVES,
   answers: [],
 };
 

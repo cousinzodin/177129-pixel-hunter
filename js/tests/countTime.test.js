@@ -1,32 +1,25 @@
-import {assert} from 'chai';
+import assert from 'assert';
 import {stopwatch} from '../game/countTime.js';
 
 describe(`Check the stopwatch`, () => {
-  const testTimer = stopwatch(10, () => {}, () => {});
 
-  testTimer.tick();
-  testTimer.tick();
+  let testTimer;
 
   it(`should count from given number of seconds to 0`, () => {
-    assert.equal(testTimer.time, 8);
+    testTimer = stopwatch(10, () => {}, () => {});
+    testTimer.tick();
+    testTimer.tick();
+    assert.strictEqual(testTimer.time, 8);
   });
 
   it(`should not go below 0`, () => {
-    testTimer.tick();
-    testTimer.tick();
-    testTimer.tick();
-    testTimer.tick();
-    testTimer.tick();
-    testTimer.tick();
-    testTimer.tick();
-    testTimer.tick();
-    testTimer.tick();
-    testTimer.tick();
-    testTimer.tick();
-    testTimer.tick();
-    testTimer.tick();
-    testTimer.tick();
-    assert.equal(testTimer.time, 0);
+    testTimer = stopwatch(10, () => {}, () => {});
+    let ticks = 13;
+    while (ticks > 0) {
+      testTimer.tick();
+      ticks--;
+    }
+    assert.strictEqual(testTimer.time, 0);
   });
 
   it(`should not allow to set invalid value`, () => {
