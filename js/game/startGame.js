@@ -42,7 +42,7 @@ const startGame = () => {
 
     if (level.type === `guessOne`) {
       form.addEventListener(`click`, (evt) => {
-        let isCorrect = evt.target.src === level.question.answer ? true : false;
+        let isCorrect = evt.target.getAttribute(`src`) === level.question.answer ? true : false;
         goNextLevel(isCorrect);
       });
     }
