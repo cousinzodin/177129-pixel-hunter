@@ -37,7 +37,7 @@ export const getScore = (answers, lives) => {
   return points;
 };
 
-export const getStatictic = (game) => {
+export const getStats = (game) => {
   const score = getScore(game.answers, game.lives);
   let result = game.answers.reduce(function (count, current) {
     count[current]++;
@@ -53,5 +53,9 @@ export const getStatictic = (game) => {
     slow: result.slow,
     correct: result.correct,
     wrong: result.wrong,
+    slowPoints: result.slow * Points.PENALTY,
+    livesPoints: game.lives * Points.BONUS,
+    fastPoints: result.fast * Points.BONUS,
+    correctPoints: result.correct * Points.REWARD,
   };
 };

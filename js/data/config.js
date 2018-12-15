@@ -5,11 +5,11 @@ const Limit = {
   TIME: 30,
 };
 
-const INITIAL_STATE = {
+const InitialState = {
   level: 0,
   time: Limit.TIME,
   lives: Limit.LIVES,
-  Points: 0,
+  points: 0,
   answers: [],
 };
 
@@ -24,5 +24,5 @@ const Speed = {
   FAST: 10,
 };
 
-export {Points, Speed, INITIAL_STATE, Limit};
+export {Points, Speed, InitialState, Limit};
 

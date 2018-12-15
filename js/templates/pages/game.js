@@ -1,6 +1,7 @@
 import {getElementFromTemplate} from '../../game/utils.js';
-import {getQuestions} from './questions.js';
-import header from '../shared/header.js';
+import {guessOne} from './game-guess-one.js';
+import {guessEach} from './game-guess-each.js';
+import header from '../shared/header/header.js';
 import progress from '../shared/progress.js';
 import greetingScreen from './greeting.js';
 import {changeScreen} from '../../game/utils.js';
@@ -10,10 +11,10 @@ export default (state, level) => {
 ${header(state)}
 <section class="game">
 <p class="game__task">${level.task}</p>
-${getQuestions(level)}
+${level.type === `guessOne` ? guessOne(level) : guessEach(level, level.questions.length === 1)}
 ${progress(state.answers)}
-</section>
-`;
+</section >
+  `;
 
   const element = getElementFromTemplate(template);
   const btnBack = element.querySelector(`.back`);

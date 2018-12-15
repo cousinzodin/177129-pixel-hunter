@@ -1,6 +1,5 @@
-export const getQuestions = (level) => {
-  if (level.type === `guessEach`) {
-    return `<form class="game__content ${level.questions.length === 1 ? `game__content--wide` : ``}">
+export const guessEach = (level, isWide) => {
+  return `<form class="game__content ${isWide ? `game__content--wide` : ``}">
     ${level.questions.map((q, i) => `<div class="game__option">
       <img src="${q.image}" alt="Option ${i}" width="468" height="458">
       <label class="game__answer game__answer--photo">
@@ -14,15 +13,5 @@ export const getQuestions = (level) => {
     </div>`).join(``)}
   </form>
   `;
-  }
-  if (level.type === `guessOne`) {
-    return `<form class="game__content  game__content--triple">
-    ${level.question.options.map((option, i) => `<div class="game__option">
-    <img src="${option}" alt="Option ${i}" width="304" height="455">
-      </div>`).join(``)}
-    </form>
-    `;
-  }
-  return ``;
 };
 

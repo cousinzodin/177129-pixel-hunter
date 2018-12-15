@@ -1,10 +1,10 @@
 import gameScreen from '../templates/pages/game.js';
 import resultScreen from '../templates/pages/result.js';
 import {changeScreen} from './utils.js';
-import {INITIAL_STATE, levels} from '../data/data.js';
+import {InitialState, levels} from '../data/data.js';
 import {changeLevel} from './changeLevel.js';
 import {decreaseLives} from './decreaseLives';
-import {getStatictic} from './score';
+import {getStats} from './score';
 import {Limit} from '../data/config.js';
 
 const startGame = () => {
@@ -17,23 +17,23 @@ const startGame = () => {
 
     const saveAnswer = (state, isCorrect) => {
       const newAnswer = isCorrect ? `correct` : `wrong`;
-      const newState = Object.assign({}, state);
-      newState.answers.push(newAnswer);
-      return newState;
+      return Object.assign({}, state, {
+        answers: [...state.answers, newAnswer],
+      });
     };
 
     const goNextLevel = (answer) => {
       game = saveAnswer(game, answer);
       if (!answer) {
         if (game.lives === 0) {
-          changeScreen(resultScreen(getStatictic(game)));
+          changeScreen(resultScreen(getStats(game)));
           return;
         }
         game = decreaseLives(game);
       }
       game = changeLevel(game, game.level + 1);
       if (game.level >= Limit.LEVELS) {
-        changeScreen(resultScreen(getStatictic(game)));
+        changeScreen(resultScreen(getStats(game)));
         return;
       }
 
@@ -58,7 +58,7 @@ const startGame = () => {
     }
   };
 
-  const newGame = Object.assign({}, INITIAL_STATE);
+  const newGame = Object.assign({}, InitialState);
   newGame.answers = [];
   updateGame(newGame);
 };

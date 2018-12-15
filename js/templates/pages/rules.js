@@ -1,6 +1,6 @@
 import {changeScreen, getElementFromTemplate} from '../../game/utils.js';
 import greetingScreen from './greeting.js';
-import {INITIAL_STATE} from '../../data/data.js';
+import {InitialState} from '../../data/data.js';
 import startGame from '../../game/startGame.js';
 
 const template = `
@@ -48,7 +48,7 @@ nameField.addEventListener(`input`, (e) => {
 });
 form.addEventListener(`submit`, (e) => {
   e.preventDefault();
-  startGame(INITIAL_STATE);
+  startGame(InitialState);
 });
 
 export default element;

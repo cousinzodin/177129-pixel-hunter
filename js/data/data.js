@@ -1,11 +1,11 @@
 import {Limit} from "./config";
 
-export const INITIAL_STATE = {
+export const InitialState = Object.freeze({
   level: 0,
   time: Limit.TIME,
   lives: Limit.LIVES,
   answers: [],
-};
+});
 
 export const levels = [
   {
