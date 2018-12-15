@@ -1,5 +1,5 @@
 
-import {changeScreen, getElementFromTemplate} from '../utils.js';
+import {changeScreen, getElementFromTemplate} from '../../game/utils.js';
 import greetingScreen from './greeting.js';
 const template = `
 <section class="intro">

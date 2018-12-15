@@ -1,4 +1,4 @@
-import {changeScreen} from './utils.js';
-import introScreen from './templates/intro.js';
+import {changeScreen} from './game/utils.js';
+import introScreen from './templates/pages/intro.js';
 
 changeScreen(introScreen);

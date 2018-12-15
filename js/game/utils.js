@@ -6,7 +6,6 @@ export const getElementFromTemplate = (template) => {
   return wrapper;
 };
 
-
 export const changeScreen = (element) => {
   app.innerHTML = ``;
   app.appendChild(element);
