@@ -1,4 +1,5 @@
-import {changeScreen, getElementFromTemplate} from '../../game/utils.js';
+import render from '../../utils/render';
+import changeScreen from '../../utils/change-screen.js';
 import rulesScreen from './rules.js';
 const template = `
 <section class="greeting central--blur">
@@ -23,7 +24,7 @@ const template = `
 </section>
 `;
 
-const element = getElementFromTemplate(template);
+const element = render(template);
 
 const btnNext = element.querySelector(`.greeting__continue`);
 btnNext.addEventListener(`click`, () => {

@@ -1,4 +1,4 @@
-import {changeScreen, getElementFromTemplate} from '../../game/utils.js';
+import {changeScreen, render} from '../../game/utils.js';
 import greetingScreen from './greeting.js';
 import header from '../shared/header/header.js';
 import progress from '../shared/progress.js';
@@ -55,7 +55,7 @@ ${stats.win ? `<table class="result__table">
 
 </section>`}`;
 
-  const element = getElementFromTemplate(template);
+  const element = render(template);
   const btnBack = element.querySelector(`.back`);
 
   btnBack.addEventListener(`click`, () => {

@@ -1,4 +1,8 @@
-import {changeScreen} from './game/utils.js';
-import introScreen from './templates/pages/intro.js';
+// import changeScreen from './utils/change-screen.js';
+// import introScreen from './components/pages/1.intro/intro-screen.js';
 
-changeScreen(introScreen);
+// changeScreen(introScreen());
+
+import router from './router.js';
+
+router.showIntro();

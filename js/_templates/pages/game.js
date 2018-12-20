@@ -1,4 +1,4 @@
-import {getElementFromTemplate} from '../../game/utils.js';
+import render from '../../utils/render.js';
 import {guessOne} from './game-guess-one.js';
 import {guessEach} from './game-guess-each.js';
 import header from '../shared/header/header.js';
@@ -16,7 +16,7 @@ ${progress(state.answers)}
 </section >
   `;
 
-  const element = getElementFromTemplate(template);
+  const element = render(template);
   const btnBack = element.querySelector(`.back`);
   btnBack.addEventListener(`click`, () => {
     changeScreen(greetingScreen);

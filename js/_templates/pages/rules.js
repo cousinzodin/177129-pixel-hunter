@@ -1,7 +1,7 @@
-import {changeScreen, getElementFromTemplate} from '../../game/utils.js';
+import {changeScreen, render} from '../../game/_utils.js';
 import greetingScreen from './greeting.js';
 import {InitialState} from '../../data/data.js';
-import startGame from '../../game/startGame.js';
+import startGame from '../../game/_startGame.js';
 
 const template = `
 <header class="header">
@@ -33,7 +33,7 @@ const template = `
 </section>
 `;
 
-const element = getElementFromTemplate(template);
+const element = render(template);
 
 const form = element.querySelector(`.rules__form`);
 const [nameField, btnNext] = form.elements;

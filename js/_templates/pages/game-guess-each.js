@@ -1,4 +1,4 @@
-export const guessEach = (level, isWide) => {
+export const guessEach = (level, isWide = false) => {
   return `<form class="game__content ${isWide ? `game__content--wide` : ``}">
     ${level.questions.map((q, i) => `<div class="game__option">
       <img src="${q.image}" alt="Option ${i}" width="468" height="458">

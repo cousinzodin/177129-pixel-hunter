@@ -1,9 +1,9 @@
 import gameScreen from '../templates/pages/game.js';
 import resultScreen from '../templates/pages/result.js';
-import {changeScreen} from './utils.js';
+import {changeScreen} from './_utils.js';
 import {InitialState, levels} from '../data/data.js';
-import {changeLevel} from './changeLevel.js';
-import {decreaseLives} from './decreaseLives';
+import {changeLevel} from './change-level.js';
+import {decreaseLives} from './decrease-lives';
 import {getStats} from './score';
 import {Limit} from '../data/config.js';
 

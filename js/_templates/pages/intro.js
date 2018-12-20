@@ -1,5 +1,5 @@
 
-import {changeScreen, getElementFromTemplate} from '../../game/utils.js';
+import {changeScreen, render} from '../../game/_utils.js';
 import greetingScreen from './greeting.js';
 const template = `
 <section class="intro">
@@ -8,7 +8,7 @@ const template = `
 </section>
 `;
 
-const element = getElementFromTemplate(template);
+const element = render(template);
 
 const btnNext = element.querySelector(`.intro__asterisk`);
 btnNext.addEventListener(`click`, () => {
