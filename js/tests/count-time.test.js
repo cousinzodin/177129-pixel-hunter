@@ -1,5 +1,5 @@
 import assert from 'assert';
-import {stopwatch} from '../game/countTime.js';
+import {stopwatch} from '../game/count-time.js';
 
 describe(`Check the stopwatch`, () => {
 

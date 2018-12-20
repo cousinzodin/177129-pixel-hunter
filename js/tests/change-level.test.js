@@ -1,5 +1,5 @@
 import assert from 'assert';
-import {changeLevel} from '../game/changeLevel.js';
+import {changeLevel} from '../game/change-level.js';
 import {InitialState} from '../data/config.js';
 
 

@@ -1,5 +1,5 @@
 import assert from 'assert';
-import {decreaseLives} from '../game/decreaseLives.js';
+import {decreaseLives} from '../game/decrease-lives.js';
 import {InitialState} from '../data/config.js';
 
 describe(`Check lives changer`, () => {
